@@ -1,0 +1,13 @@
+<h2>{{ title }}</h2>
+
+<app-tab-bar
+   [items]="srv.getCities()"
+   [active]="srv.active"
+   (tabSelected)="srv.setActive($event)">
+</app-tab-bar>
+<app-collapsable
+      [title]="srv.active.name"
+      [opened]="opened"
+      (toggle)="showContent()">
+  <app-map-static [lat]="srv.active.lat" [lng]="srv.active.lng" [zoom]="srv.active?.zoom"></app-map-static>
+</app-collapsable>
